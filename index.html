@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蜀绣</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/fontawesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/brands.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/solid.min.css" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 200vh;
+            overflow-x: hidden;
+        }
+
+        .background {
+
+            background-image: url("images/蜀绣1.png");
+            background-size: cover;
+            background-position: 50% 50%;
+            height: 200vh;
+            font: 540 42rem ' ';
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .background::before {
+            content: '';
+            background-size: cover;
+            background-image: inherit;
+            background-position: 50% 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -99;
+        }
+
+        h2 {
+            position: absolute;
+            letter-spacing: 2px;
+            top: 120vh;
+            width: 60%;
+            font: 500 32px;
+            color: #fff;
+            left: 50%;
+            transform: translate(-50%);
+            padding: 30px;
+            background-color: rgba(0, 0, 0, .3);
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:rgb(0,104,55); opacity: 70%;">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/资源 2.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            蜀绣
+        </a>
+        <a class="navbar-brand" href="lishi.html">历史渊源</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="gongyi.html">工艺特征 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="作品欣赏.html">作品欣赏</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">派系</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="SC.html">川派蜀绣</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="CQ.html">渝派蜀绣</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="zixun.html">蜀绣资讯</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="background" style="font-family: sanji;"><span>蜀绣</span></div>
+    <h2 style="font-family: sanji; text-indent: 40px;">
+        蜀绣是巴蜀地区流行的一种民间工艺，分为川西和川东(今重庆)两大流派，中国国家地理标志产品。古代川西平原盛产蚕，故称“蜀国”。<br>
+        &nbsp;&nbsp;蜀绣又名“川绣”，与苏绣、湘绣、粤绣齐名，为中国四大名绣之一，是在丝绸或其他织物上采用蚕丝线绣出花纹图案的中国传统工艺。作为中国刺绣传承时间最长的绣种之一，蜀绣以其明丽清秀的色彩和精湛细腻的针法形成了自身的独特韵味，丰富程度居四大名绣之首。
+    </h2>
+
+    <script>
+        const background = document.querySelector(".background")
+
+        document.addEventListener('scroll', () => {
+            const scrollY = window.scrollY
+
+            if (scrollY !== 0) {
+                background.style.backgroundPosition = `calc(50% + ${scrollY}px) calc(50% + ${scrollY}px)`
+            } else {
+                background.style.backgroundPosition = ''
+            }
+        })
+    </script>
+
+
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.15.0/esm/popper.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="module" src="./Firebase.js"></script>
+
+</body>
+
+</html>
