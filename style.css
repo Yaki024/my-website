@@ -8,7 +8,14 @@ nav {
     font-size: 23px;
     src: url("./font/YanShiYouRanXiaoKai-2.ttf");
 }
+#title_zixun{
+    font-size: 40px;
+}
 
+.container a{
+    color: rgb(58, 65, 124);
+    text-decoration: none;
+}
 
 .container p:not(.card-title) {
     text-indent: 40px;
