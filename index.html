@@ -9,6 +9,7 @@
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/fontawesome.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/brands.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/solid.min.css" rel="stylesheet">
+    <link rel="preload" href="./font/YanShiYouRanXiaoKai-2.ttf" as="font" crossorigin>
     <link rel="icon" href="images/favicon.ico">
     <link rel="stylesheet" href="style.css">
 
@@ -60,6 +61,55 @@
             padding: 30px;
             background-color: rgba(0, 0, 0, .3);
         }
+
+        /* 增加移动端适配 */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 18px;
+                width: 90%;
+                padding: 15px;
+            }
+
+            .background {
+                height: 200vh;
+                font: 200 20rem ' ';
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1200px) {
+            h2 {
+                font-size: 26px;
+                width: 80%;
+                padding: 15px;
+            }
+
+            .background {
+                height: 200vh;
+                font: 200 25rem ' ';
+            }
+        }
+
+        @media (min-width: 1200px) and (max-width: 100vw) {
+            h2 {
+                font-size: 32px;
+                width: 60%;
+                padding: 15px;
+            }
+
+            .background {
+                height: 200vh;
+                font: 540 42rem ' ';
+            }
+        }
+
+
+        /* 提升文字可读性 */
+        h2 {
+            backdrop-filter: blur(5px);
+            /* 毛玻璃效果 */
+            line-height: 1.8;
+            /* 增加行距 */
+        }
     </style>
 
 </head>
@@ -109,16 +159,24 @@
 
     <script>
         const background = document.querySelector(".background")
-
+        // 给整个文档添加 'scroll' 事件监听器，当用户滚动页面时触发回调函数
         document.addEventListener('scroll', () => {
+            // 获取当前窗口垂直方向的滚动距离（以像素为单位）
             const scrollY = window.scrollY
 
             if (scrollY !== 0) {
+                // 如果正在滚动，设置背景图片的位置：
+                // 水平位置：视口中心（50%）加上滚动距离
+                // 垂直位置：视口中心（50%）加上滚动距离
                 background.style.backgroundPosition = `calc(50% + ${scrollY}px) calc(50% + ${scrollY}px)`
             } else {
+                // 如果滚动回到了顶部（scrollY = 0），清除背景位置样式
+                // 恢复默认的背景位置
                 background.style.backgroundPosition = ''
             }
         })
+
+
     </script>
 
 
@@ -126,7 +184,6 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.15.0/esm/popper.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script type="module" src="./Firebase.js"></script>
 
 </body>
 

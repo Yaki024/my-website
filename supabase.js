@@ -4,6 +4,13 @@ const supabaseUrl = 'https://mdvgdomhuejklqezlysb.supabase.co'
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1kdmdkb21odWVqa2xxZXpseXNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIwMTAxNjAsImV4cCI6MjA1NzU4NjE2MH0.CpmtcA-r2xncu8lT_fxmsH7kT470wA3mbdkG1xlg6lc"
 const supabase = createClient(supabaseUrl, supabaseKey)
 
+// 添加XSS防护
+function sanitizeHTML(str) {
+    const div = document.createElement('div')
+    div.textContent = str
+    return div.innerHTML
+}
+
 // 分页相关变量
 let currentPage = 0
 const COMMENTS_PER_PAGE = 10
@@ -91,8 +98,8 @@ export async function loadComments(loadMore = false) {
         const commentsHTML = renderComments(allComments)
         const paginationHTML = totalComments > allComments.length
             ? `<div class="text-center mt-3">
-                 <button class="btn btn-success" id="load-more-btn">展开更多评论（${totalComments - allComments.length}条剩余）</button>
-               </div>`
+                    <button class="btn btn-success" id="load-more-btn">展开更多评论（${totalComments - allComments.length}条剩余）</button>
+            </div>`
             : totalComments > COMMENTS_PER_PAGE
                 ? '<p class="text-muted mt-3">已显示所有评论</p>'
                 : ''

@@ -9,9 +9,261 @@
   <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/fontawesome.min.css" rel="stylesheet">
   <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/brands.min.css" rel="stylesheet">
   <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/solid.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="./font/YanShiYouRanXiaoKai-2.ttf" as="font" crossorigin>
+
   <link rel="icon" href="images/favicon.ico">
+  <style>
+    @font-face {
+      font-family: sanji;
+      src: url("./font/YanShiYouRanXiaoKai-2.ttf");
+    }
+
+    nav {
+      font-family: sanji;
+      font-size: 23px;
+      src: url("./font/YanShiYouRanXiaoKai-2.ttf");
+    }
+
+    .container p:not(.card-title) {
+      text-indent: 40px;
+      font-family: sanji;
+      font-size: 25px;
+      src: url("./font/YanShiYouRanXiaoKai-2.ttf");
+
+    }
+
+    .container h5,
+    .alert-heading {
+      font-family: sanji;
+      font-size: 50px;
+      src: url("./font/YanShiYouRanXiaoKai-2.ttf");
+    }
+
+    .container h2,
+    h3,.alert-popup {
+      font-family: sanji;
+      src: url("./font/YanShiYouRanXiaoKai-2.ttf");
+
+    }
+
+    .card-title {
+      font-family: sanji;
+      font-size: 25px;
+      src: url("./font/YanShiYouRanXiaoKai-2.ttf");
+    }
+
+
+
+    .alert {
+      background-color: rgba(255, 255, 255, 0.5);
+      border: none;
+    }
+
+    /*三个时期的内容展现，与style.css内容冲突所以单独写入  */
+    .box {
+      width: 1100px;
+      margin: auto;
+      padding-top: 80px;
+    }
+
+    .box>.title {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 50px;
+    }
+
+    .box>.title>.item {
+      background: linear-gradient(to bottom right, #547988, #6DAF84);
+      height: 80px;
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 28px;
+      box-shadow: 0 0 10px #fff;
+      cursor: pointer;
+      opacity: 1;
+
+    }
+
+    .box>.title>.item>img {
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+      transition: .5s;
+      object-fit: cover;
+    }
+
+    .box>.title>.item>span {
+      color: #fff;
+      font-size: 26px;
+      letter-spacing: 5px;
+      margin-right: 10px;
+      font-weight: bold;
+      transition: .5s;
+      font-family: sanji;
+      src: url("./font/YanShiYouRanXiaoKai-2.ttf");
+      letter-spacing: 0.1px;
+    }
+
+    .box>.title>.checked {
+      background: linear-gradient(to bottom right, #547988, #6DAF84);
+      box-shadow: 0 0 28px #fff;
+    }
+
+    .box>.title>.checked>span {
+      margin-right: 35px;
+    }
+
+    .box>.title>.checked>img {
+      transform: scale(1.5);
+    }
+
+    .content {
+
+      height: 0;
+      padding: 0;
+      overflow: hidden;
+      border-radius: 30px;
+      opacity: 0;
+      transition: .5s;
+      font-family: sanji;
+      src: url("./font/YanShiYouRanXiaoKai-2.ttf");
+    }
+
+    .che {
+      opacity: 1;
+      height: 1200px;
+      padding: 20px;
+    }
+
+    .content>h1 {
+      font-size: 50px;
+      margin: 20px 0;
+    }
+
+    .content>.body {
+      font-size: 18px;
+      line-height: 2;
+      text-align: justify;
+    }
+
+    .imgList {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .imgList>img {
+      width: 47%;
+      height: 330px;
+      object-fit: cover;
+      border-radius: 30px;
+    }
+
+    /* 一键返回 */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #008f4d, #007542);
+      border: none;
+      color: white;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 5px 15px rgba(0, 104, 55, 0.3);
+      z-index: 999;
+    }
+
+    #backToTop.show {
+      opacity: 0.9;
+      transform: translateY(0);
+    }
+
+    #backToTop:hover {
+      opacity: 1;
+      background: linear-gradient(145deg, #00a85e, #008f4d);
+      box-shadow: 0 8px 20px rgba(0, 104, 55, 0.4);
+      transform: scale(1.1);
+    }
+
+    #backToTop i {
+      font-size: 1.4em;
+      transition: transform 0.3s;
+    }
+
+    /* 提示框样式 */
+    .alert-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 104, 55, 0.95);
+      color: white;
+      padding: 20px 35px;
+      border-radius: 50px;
+      display: none;
+      align-items: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      animation: float 3s ease-in-out infinite;
+      z-index: 9999;
+    }
+
+    .alert-popup i {
+      margin-right: 12px;
+      font-size: 1.5em;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translate(-50%, -55%);
+      }
+
+      50% {
+        transform: translate(-50%, -45%);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* 入场动画 */
+    .show-alert {
+      display: flex !important;
+      animation: slideIn 0.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -30%);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+  </style>
 </head>
+<button id="backToTop" class="shadow">
+  <i class="fas fa-arrow-up"></i>
+</button>
 
 <body background="images/back.png">
   <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:rgb(0,104,55); opacity: 80%;">
@@ -54,92 +306,109 @@
 
   <div class="container">
     <div class="row" style="margin-top:10%;">
-      <div class="alert alert-light col-9" style="height: 20%; " role="alert">
+      <div class="alert alert-light col-12" style="height: 20%;" role="alert">
         <h1 class="alert-heading" style="color: black;">历史渊源</h1>
-        <p>3000余年前的中国西南，群山环抱中的川西平原，人们在这块肥沃丰润的土地上种桑养蚕，并在织出的丝帛上用绣花针穿上五彩丝线刺绣出美丽的图案——蜀绣。蜀绣从古代先民的劳动生活中诞生，并开始了漫长的发展和演变历程。</p>
+        <p>3000余年前的中国西南，群山环抱中的川西平原，人们在这块肥沃丰润的土地上种桑养蚕，并在织出的丝帛上用绣花针穿上五彩丝线刺绣出美丽的图案——蜀绣。蜀绣从古代先民的劳动生活中诞生，并开始了漫长的发展和演变历程。
+        </p>
         <hr>
-        <h5 style="color: black;">汉末三国：蜀绣与金银珠玉同列</h5>
-        <p class="mb-0">
-          蜀绣的发展基于蜀地富饶，尤其是所产丝帛质好量大。今见蜀绣较早记载出于西汉文学家杨雄，其《蜀都赋》云：“锦布绣望，芒芒兮无幅”，并描述在成都随处可见“挥肱织锦”、“展帛刺绣”的情景，另有扬雄《绣补》诗，诗中表达了作者对蜀绣技艺的高度赞誉。随着蜀地丝织业的发达，蜀绣有了雄厚的基础，所以到西汉末蜀地“女工之业，覆衣天下”(《后汉书》)，名声在外。据文献记载，东汉蜀国最早的君王蚕丛已经懂得养殖桑蚕。汉末三国时，蜀锦蜀绣就已经驰名天下，作为珍稀而昂贵的丝织品，蜀国经常用它交换北方的战马或其他物资。晋常璩《华阳国志》详载蜀地宝物，便将锦绣与金银珠玉同列。
-        </p><br>
-        <p>
-          唐代末期，南诏进攻成都，掠夺的对象除了金银、蜀锦、蜀绣，还大量劫掠蜀锦蜀绣工匠，视之为奇珍异物。据《元和郡县志》记载，在唐代，安靖刺绣作为贡品进入宫廷，成为皇帝奖赏功臣的主要物品。五代十国时期，四川相对安定的局面为蜀绣的发展创造了有利的条件，社会需求的不断增大，刺激了蜀绣业的飞速发展。时至宋代，蜀绣之名已遍及神州，文献称蜀绣技法“穷工极巧”，蜀绣的发展达到鼎盛时期，绣品在工艺、产销量和精美程度上都独步天下。
-        </p>
-      </div>
-    </div>
-  </div>
+        <div class="box">
+          <div class="title">
+            <div class="item">
+              <span>汉末三国</span>
+              <img src="images/三国.png" class="lazyload" />
+            </div>
+            <div class="item">
+              <span>清末民国</span>
+              <img src="images/民国.png" class="lazyload" />
+            </div>
 
-  <div class="container">
-    <div class="row form-inline" style="margin-top:10%;">
-      <div class="alert alert-light col-9" style="height: 20%; " role="alert">
-        <h5 style="color: black;">清末民国：蜀绣制作渐成行业</h5>
-        <p>
-          清朝中叶以后，蜀绣逐渐形成行业。道光年间，民间组织的三皇神会成立。这是一个由铺、料、师组成的刺绣业的专门行会。这种正式垂版立行，建立行规，确定专业分工，维持行业内部各方的利益，表明蜀绣已从家庭逐渐进入市场，形成广为社会所需的规模生产。政府为提倡振兴实业，当时各县官府均设"劝工局"以鼓励蜀绣生产。劝工局下设刺绣科，专门管理蜀绣的生产和销售。蜀绣中不少精品被指定为皇室贡品，而且优秀的艺人还被授予“五品同知衔”的称谓，极大地鼓励了蜀绣的生产和制作。随着蜀绣行会的成立，成都的蜀绣店铺、作坊多达数十家，从业绣工也有1000余人。这一时期，刺绣产品开始由专业的设计师进行设计，产品逐渐划分为穿货、戏衣、灯彩三个行业。
-        </p><br>
-        <p>
-          清末至民国初年，蜀绣在国际上已享有很高声誉，在1915年国际巴拿马赛中荣获金奖。民国后，蜀绣虽然不再绣制朝衣和贡品，但绣制日用品的范围却越来越广，几乎包括人们日常生活的方方面面。小到幼儿的披衫、鞋帽，大到结婚时的床上用品、室内装饰品及馈赠酬酢用品。这是蜀绣民间性突出的方面，城乡妇女闲时多自绣鞋帽枕套头巾甚至帐帏被面等，操练极精者即成高手。
-        </p>
-      </div>
-      <div class="card col-3 ">
-        <img class="card-img" src="images/2.jpg" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-title" style="text-align: center;">蜀绣工艺大师彭世平作品《文君听琴》正面</p>
+            <div class="item">
+              <span>新中国</span>
+              <img src="images/中国.jpg" class="lazyload" />
+            </div>
+          </div>
+          <div class="content">
+
+            <h1>汉末三国：蜀绣与金银珠玉同列</h1>
+            <div class="body">
+              <p>
+                蜀绣的发展基于蜀地富饶，尤其是所产丝帛质好量大。今见蜀绣较早记载出于西汉文学家杨雄，其《蜀都赋》云：“锦布绣望，芒芒兮无幅”，并描述在成都随处可见“挥肱织锦”、“展帛刺绣”的情景，另有扬雄《绣补》诗，诗中表达了作者对蜀绣技艺的高度赞誉。随着蜀地丝织业的发达，蜀绣有了雄厚的基础，所以到西汉末蜀地“女工之业，覆衣天下”(《后汉书》)，名声在外。据文献记载，东汉蜀国最早的君王蚕丛已经懂得养殖桑蚕。汉末三国时，蜀锦蜀绣就已经驰名天下，作为珍稀而昂贵的丝织品，蜀国经常用它交换北方的战马或其他物资。晋常璩《华阳国志》详载蜀地宝物，便将锦绣与金银珠玉同列。
+              </p>
+              <p>
+                唐代末期，南诏进攻成都，掠夺的对象除了金银、蜀锦、蜀绣，还大量劫掠蜀锦蜀绣工匠，视之为奇珍异物。据《元和郡县志》记载，在唐代，安靖刺绣作为贡品进入宫廷，成为皇帝奖赏功臣的主要物品。五代十国时期，四川相对安定的局面为蜀绣的发展创造了有利的条件，社会需求的不断增大，刺激了蜀绣业的飞速发展。时至宋代，蜀绣之名已遍及神州，文献称蜀绣技法“穷工极巧”，蜀绣的发展达到鼎盛时期，绣品在工艺、产销量和精美程度上都独步天下。
+              </p>
+            </div>
+            <div class="imgList">
+              <img src="images/汉末三国1.png" class="lazyload">
+              <img src="images/汉末三国2.png" class="lazyload">
+            </div>
+          </div>
+          <div class="content">
+
+            <h1>清末民国：蜀绣制作渐成行业</h1>
+            <div class="body">
+              <p>
+                清朝中叶以后，蜀绣逐渐形成行业。道光年间，民间组织的三皇神会成立。这是一个由铺、料、师组成的刺绣业的专门行会。这种正式垂版立行，建立行规，确定专业分工，维持行业内部各方的利益，表明蜀绣已从家庭逐渐进入市场，形成广为社会所需的规模生产。政府为提倡振兴实业，当时各县官府均设"劝工局"以鼓励蜀绣生产。劝工局下设刺绣科，专门管理蜀绣的生产和销售。蜀绣中不少精品被指定为皇室贡品，而且优秀的艺人还被授予“五品同知衔”的称谓，极大地鼓励了蜀绣的生产和制作。随着蜀绣行会的成立，成都的蜀绣店铺、作坊多达数十家，从业绣工也有1000余人。这一时期，刺绣产品开始由专业的设计师进行设计，产品逐渐划分为穿货、戏衣、灯彩三个行业。
+              </p>
+              <p>
+                清末至民国初年，蜀绣在国际上已享有很高声誉，在1915年国际巴拿马赛中荣获金奖。民国后，蜀绣虽然不再绣制朝衣和贡品，但绣制日用品的范围却越来越广，几乎包括人们日常生活的方方面面。小到幼儿的披衫、鞋帽，大到结婚时的床上用品、室内装饰品及馈赠酬酢用品。这是蜀绣民间性突出的方面，城乡妇女闲时多自绣鞋帽枕套头巾甚至帐帏被面等，操练极精者即成高手。
+              </p>
+            </div>
+            <div class="imgList">
+              <img src="images/清末民国1.png" class="lazyload">
+              <img src="images/清末民国2.png" class="lazyload">
+            </div>
+          </div>
+
+          <div class="content">
+
+            <h1>新中国时期：蜀绣工艺创新技法</h1>
+            <div class="body">
+              <p>
+                抗战时期，文化中心南迁，许多画家和技工来到成都，为蜀绣的发展做出了积极贡献。新中国成立后，在四川设立了成都蜀绣厂，使蜀绣工艺的发展进入了一个新阶段，技术上不断创新。如产生了表现动物皮毛质感的“交叉针”，表现人物发髻的“螺旋针”，表现鲤鱼鳞片的“虚实覆盖针”等，大大丰富了蜀绣的表现形式和艺术风格。“文革”中，蜀绣同许多优秀的民族文化遗产被作为“封、资、修”的东西加以批判，从事刺绣的艺人甚至被诬为“为帝王将相，才子佳人服务”，致使刺绣行业转产，刺绣工人改行另谋生路。
+              </p>
+              <p>
+                动乱期间的蜀绣厂受到外界波及，一些重要的资料被毁坏，很多人受到了不同程度的影响。当年中国四大绣，粤绣、苏绣、湘绣都参加了广交会，唯独缺了蜀绣。来此访问的美国总统尼克松还特意向周恩来总理问及蜀绣状况，此后政府领导人开始逐渐重视起来，蜀绣厂等到了新的转机。1971年在周总理的亲自关怀下，蜀绣厂少数人员开始恢复生产，那些改行从事其他行业的刺绣工人也纷纷返厂。20世纪70年代末，川西农村几乎是“家家女红，户户针工”，人数达四五千之多，相当于刺绣工厂在职职工的15倍。她们除刺绣被面、枕套、头巾、手巾、衬衣、桌布等几十个品种外，还积极生产外贸出口的生纺绣片、绣屏等。绣品仍保持浓厚的地方特色。1981年后，蜀绣有了较大发展，除蜀绣厂专业从事刺绣的工人外，农村郊县加工刺绣的人员迅速增至七、八千人。1982年的中国工艺美术品第二届百花奖评选，以及1985年的巴黎博览会，蜀绣都赢得了极高的荣誉。
+              </p>
+            </div>
+            <div class="imgList">
+              <img src="images/新中国时期1.png" class="lazyload">
+              <img src="images/新中国时期2.png" class="lazyload">
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row form-inline" style="margin-top:10%;">
-      <div class="alert alert-light col-9" style="height: 20%; " role="alert">
-        <h5 style="color: black;">新中国时期：蜀绣工艺创新技法</h5>
-        <p>
-          抗战时期，文化中心南迁，许多画家和技工来到成都，为蜀绣的发展做出了积极贡献。新中国成立后，在四川设立了成都蜀绣厂，使蜀绣工艺的发展进入了一个新阶段，技术上不断创新。如产生了表现动物皮毛质感的“交叉针”，表现人物发髻的“螺旋针”，表现鲤鱼鳞片的“虚实覆盖针”等，大大丰富了蜀绣的表现形式和艺术风格。“文革”中，蜀绣同许多优秀的民族文化遗产被作为“封、资、修”的东西加以批判，从事刺绣的艺人甚至被诬为“为帝王将相，才子佳人服务”，致使刺绣行业转产，刺绣工人改行另谋生路。
-        </p><br>
-        <p>
-          动乱期间的蜀绣厂受到外界波及，一些重要的资料被毁坏，很多人受到了不同程度的影响。当年中国四大绣，粤绣、苏绣、湘绣都参加了广交会，唯独缺了蜀绣。来此访问的美国总统尼克松还特意向周恩来总理问及蜀绣状况，此后政府领导人开始逐渐重视起来，蜀绣厂等到了新的转机。1971年在周总理的亲自关怀下，蜀绣厂少数人员开始恢复生产，那些改行从事其他行业的刺绣工人也纷纷返厂。20世纪70年代末，川西农村几乎是“家家女红，户户针工”，人数达四五千之多，相当于刺绣工厂在职职工的15倍。她们除刺绣被面、枕套、头巾、手巾、衬衣、桌布等几十个品种外，还积极生产外贸出口的生纺绣片、绣屏等。绣品仍保持浓厚的地方特色。1981年后，蜀绣有了较大发展，除蜀绣厂专业从事刺绣的工人外，农村郊县加工刺绣的人员迅速增至七、八千人。1982年的中国工艺美术品第二届百花奖评选，以及1985年的巴黎博览会，蜀绣都赢得了极高的荣誉。
-        </p>
-      </div>
-      <div class="card col-3 ">
-        <img class="card-img" src="images/3.jpg" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-title" style="text-align: center;">蜀绣工艺大师彭世平作品《文君听琴》背面</p>
+        <div class="container" style="margin-top:10% ;">
+          <div class="row">
+            <div class="alert alert-light col-12" style="height: 20%;background-color: transparent;border: none;"
+              role="alert">
+              <h2 class="alert-heading" style="color: black;">蜀绣文化于农耕文化紧密结合</h2>
+              <hr>
+              <p>
+                四川盆地周围高山环抱，川西沃野千里，气候温和，雨量充沛，为发展农业提供了极为有利的条件。汉代司马迁在《史记》中写道：“巴蜀亦沃野……”班固《西都赋》称天子脚下八百里秦川是“源泉灌注，陂池交属，竹林果园，芳草甘木，郊野之富，号为近蜀”。李善解释说，“言秦境富饶，与蜀相类，故号‘近蜀’焉”。《华阳国志》也说：“其山林泽渔，园囿瓜果，四季代熟，靡不有焉。”这些记载都说明，蜀地农作而富饶，古来如此。
+              </p><br>
+              <p>
+                四川盆地内的古蜀国历经蚕丛、柏灌、鱼凫、杜宇、开明五个王朝，到开明十二世时秦灭蜀，大约有一千余年的历史。古蜀国的第一个开国君主是蚕丛，他是“蜀”的化身，应该是华夏第一个把山上野蚕变为家蚕的人。史书说他“衣青衣，劝农桑，创石棺”，在成都平原发展生产和经济，铸就了古蜀国的历史辉煌。《华阳国志》说：“周失纲纪，蜀先称王，有蜀侯蚕丛，其目纵，始称王。”即是说，在西周末，周幽王烽火戏诸侯，自乱朝纲时，蜀地在蚕丛治理下，经济勃兴，人民安定，国力已强大到足可以和周天子分庭抗礼，因此他乘此机会在蜀中称王建立了蜀国。
+              </p><br>
+              <p>
+                蜀国之所以得名为“蜀”，就与蚕桑有很大的关系。《说文解字》释“蜀”字说：“蜀，葵中蚕也，从虫，上目象蜀头形，中象其身蜎蜎。”蚕丛以蚕桑兴邦，领导古蜀人在成都平原栽桑养蚕，建立了国家，使这个原来以牧业为生的游牧民族的大部分人定居下来，跨入了农耕时代。尤其是经过开明治水和李冰创建都江堰，成都平原成为“天府之国”，农耕文化非常发达，为蚕桑丝绸、蜀锦蜀绣的大发展奠定了良好的基础。
+              </p><br>
+              <p>
+                此后，蜀国成为蚕桑丝绸之邦而蜚声海内外的记载史不绝书。《史记》说，春秋以前，蜀国的帛便因品质优良而销往秦地和越地。在闻名于世的丝绸之路上，发现了大量生产于成都的丝绸制品，著名的蜀锦“五星出东方”就是其中之一；而汉代开辟的“南方丝绸之路”即以成都为始点。蚕桑丝绸在男耕女织的农耕时代是一项占尽先机的大宗产品。绸缎对于上层社会来说是一宗必不可少的商品，遂使蜀锦、蜀绣成为蜀中之“宝”，“天府之国”成为世人仰羡的地方。
+              </p>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
-
-
-
-
 
 
 
 
   <div class="container" style="margin-top:10% ;">
     <div class="row">
-      <div class="alert alert-light col-9" style="height: 20%;" role="alert">
-        <h2 class="alert-heading" style="color: black;">蜀绣文化于农耕文化紧密结合</h2>
-        <hr>
-        <p>
-          四川盆地周围高山环抱，川西沃野千里，气候温和，雨量充沛，为发展农业提供了极为有利的条件。汉代司马迁在《史记》中写道：“巴蜀亦沃野……”班固《西都赋》称天子脚下八百里秦川是“源泉灌注，陂池交属，竹林果园，芳草甘木，郊野之富，号为近蜀”。李善解释说，“言秦境富饶，与蜀相类，故号‘近蜀’焉”。《华阳国志》也说：“其山林泽渔，园囿瓜果，四季代熟，靡不有焉。”这些记载都说明，蜀地农作而富饶，古来如此。
-        </p><br>
-        <p>
-          四川盆地内的古蜀国历经蚕丛、柏灌、鱼凫、杜宇、开明五个王朝，到开明十二世时秦灭蜀，大约有一千余年的历史。古蜀国的第一个开国君主是蚕丛，他是“蜀”的化身，应该是华夏第一个把山上野蚕变为家蚕的人。史书说他“衣青衣，劝农桑，创石棺”，在成都平原发展生产和经济，铸就了古蜀国的历史辉煌。《华阳国志》说：“周失纲纪，蜀先称王，有蜀侯蚕丛，其目纵，始称王。”即是说，在西周末，周幽王烽火戏诸侯，自乱朝纲时，蜀地在蚕丛治理下，经济勃兴，人民安定，国力已强大到足可以和周天子分庭抗礼，因此他乘此机会在蜀中称王建立了蜀国。
-        </p><br>
-        <p>
-          蜀国之所以得名为“蜀”，就与蚕桑有很大的关系。《说文解字》释“蜀”字说：“蜀，葵中蚕也，从虫，上目象蜀头形，中象其身蜎蜎。”蚕丛以蚕桑兴邦，领导古蜀人在成都平原栽桑养蚕，建立了国家，使这个原来以牧业为生的游牧民族的大部分人定居下来，跨入了农耕时代。尤其是经过开明治水和李冰创建都江堰，成都平原成为“天府之国”，农耕文化非常发达，为蚕桑丝绸、蜀锦蜀绣的大发展奠定了良好的基础。
-        </p><br>
-        <p>
-          此后，蜀国成为蚕桑丝绸之邦而蜚声海内外的记载史不绝书。《史记》说，春秋以前，蜀国的帛便因品质优良而销往秦地和越地。在闻名于世的丝绸之路上，发现了大量生产于成都的丝绸制品，著名的蜀锦“五星出东方”就是其中之一；而汉代开辟的“南方丝绸之路”即以成都为始点。蚕桑丝绸在男耕女织的农耕时代是一项占尽先机的大宗产品。绸缎对于上层社会来说是一宗必不可少的商品，遂使蜀锦、蜀绣成为蜀中之“宝”，“天府之国”成为世人仰羡的地方。
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container" style="margin-top:10% ;">
-    <div class="row">
-      <div class="alert alert-light col-9" style="height: 20%;" role="alert">
+      <div class="alert alert-light col-12" style="height: 20%;" role="alert">
         <h2 class="alert-heading" style="color: black;">追求和享受美</h2>
         <hr>
         <p>
@@ -155,7 +424,7 @@
 
   <div class="container" style="margin-top:10% ;">
     <div class="row">
-      <div class="alert alert-light col-9" style="height: 20%;" role="alert">
+      <div class="alert alert-light col-12" style="height: 20%;" role="alert">
         <h2 class="alert-heading" style="color: black;">国家依靠的经济支柱</h2>
         <hr>
         <p>
@@ -187,7 +456,7 @@
 
   <div class="container" style="margin-top:10% ;">
     <div class="row">
-      <div class="alert alert-light col-9" style="height: 20%;" role="alert">
+      <div class="alert alert-light col-12" style="height: 20%;" role="alert">
         <h2 class="alert-heading" style="color: black;">巴蜀文化的重要构成</h2>
         <hr>
         <p>
@@ -209,16 +478,59 @@
 
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <p class="display-4" style="text-align: center;">热线：17821995430&emsp;邮箱：123456789@qq.com&emsp;地址：某某省某某市某某路某某号</p>
+      <p class="display-4" style="text-align: center;">
+        热线：17821995430&emsp;邮箱：123456789@qq.com&emsp;地址：某某省某某市某某路某某号</p>
       <p class="lead" style="text-align: center;">Copright©某某有限公司版权所有|某ICP备19666577号</p>
     </div>
+  </div>
+
+  <div id="customAlert" class="alert-popup">
+    <i class="fas fa-tools"></i>
+    <span>功能正在开发中，敬请期待</span>
   </div>
 
 
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.15.0/esm/popper.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script type="module" src="./Firebase.js"></script>
+  <script type="module" src="./button.js"></script>
+  <script>
+    // 修改表单提交事件
+    $('form').submit(function (e) {
+      e.preventDefault();
+
+      const alertBox = $('#customAlert');
+      alertBox.addClass('show-alert');
+
+      setTimeout(() => {
+        alertBox.removeClass('show-alert');
+      }, 2000);
+    });
+
+
+
+    let titlist = document.querySelectorAll('.title>.item');
+    let conlist = document.querySelectorAll('.content');
+    for (let i = 0; i < titlist.length; i++) {
+      titlist[i].onclick = function () {
+        clear();
+        titlist[i].classList.add('checked');
+        conlist[i].classList.add('che');
+      }
+    }
+
+    function clear() {
+      // 时间轴切换添加平滑滚动
+      $('html, body').animate({
+        scrollTop: $('.box').offset().top - 100
+      }, 500);
+      for (let i = 0; i < titlist.length; i++) {
+        titlist[i].classList.remove('checked');
+        conlist[i].classList.remove('che');
+      }
+    }
+  </script>
+
 
 </body>
 

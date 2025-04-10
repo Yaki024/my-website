@@ -9,9 +9,14 @@
   <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/fontawesome.min.css" rel="stylesheet">
   <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/brands.min.css" rel="stylesheet">
   <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/solid.min.css" rel="stylesheet">
+  <link rel="preload" href="./font/YanShiYouRanXiaoKai-2.ttf" as="font" crossorigin>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="images/favicon.ico">
+
 </head>
+<button id="backToTop" class="shadow">
+  <i class="fas fa-arrow-up"></i>
+</button>
 
 <body background="images/back.png">
   <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:rgb(0,104,55); opacity: 80%;">
@@ -412,10 +417,28 @@
     </div>
   </div>
 
+  <div id="customAlert" class="alert-popup">
+    <i class="fas fa-tools"></i>
+    <span>功能正在开发中，敬请期待</span>
+  </div>
+
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.15.0/esm/popper.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script type="module" src="./Firebase.js"></script>
+  <script type="module" src="./button.js"></script>
+  <script>
+    // 修改表单提交事件
+    $('form').submit(function (e) {
+      e.preventDefault();
+
+      const alertBox = $('#customAlert');
+      alertBox.addClass('show-alert');
+
+      setTimeout(() => {
+        alertBox.removeClass('show-alert');
+      }, 2000);
+    });
+  </script>
 
 </body>
 

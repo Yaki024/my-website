@@ -9,9 +9,62 @@
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/fontawesome.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/brands.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/solid.min.css" rel="stylesheet">
+    <link rel="preload" href="./font/YanShiYouRanXiaoKai-2.ttf" as="font" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.ico">
+    <style>
+        #comments {
+            font-size: 23px;
+            /* 基础字号 */
+            line-height: 1.6;
+            /* 增加行高提升可读性 */
+        }
+
+        #comments h2 {
+            font-size: 2.2em;
+            /* 标题放大 */
+            color: #006837;
+            /* 保持导航栏同款绿色 */
+            margin-bottom: 1.5rem;
+        }
+
+        #comment-list .comment-item {
+            font-size: 1.1em;
+            margin-bottom: 1.2rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+        }
+
+        #comments input,
+        #comments textarea {
+            font-size: 1em;
+            /* 输入框文字同步放大 */
+            padding: 12px;
+            border: 1px solid #006837;
+        }
+
+        #comments button {
+            
+            padding: 12px 24px;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            #comments {
+                font-size: 16px;
+            }
+
+            #comments h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
 </head>
+
+<button id="backToTop" class="shadow">
+    <i class="fas fa-arrow-up"></i>
+</button>
 
 <body background="images/back.png">
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:rgb(0,104,55); opacity: 80%;">
@@ -192,6 +245,7 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script type="module" src="./supabase.js"></script>
+    <script type="module" src="./button.js"></script>
     <script>
         $('.card-text').each(function () {
             // 获取完整文本内容

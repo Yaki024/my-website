@@ -10,10 +10,14 @@
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/fontawesome.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/brands.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.8.2/css/solid.min.css" rel="stylesheet">
+    <link rel="preload" href="./font/YanShiYouRanXiaoKai-2.ttf" as="font" crossorigin>
     <link rel="icon" href="images/favicon.ico">
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
+<button id="backToTop" class="shadow">
+    <i class="fas fa-arrow-up"></i>
+</button>
 
 <body>
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:rgb(0,104,55); opacity: 70%;">
@@ -22,8 +26,8 @@
             蜀绣
         </a>
         <a class="navbar-brand" href="lishi.html">历史渊源</a>
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-            aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -35,7 +39,8 @@
                     <a class="nav-link" href="作品欣赏.html">作品欣赏</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">派系</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">派系</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
                         <a class="dropdown-item" href="SC.html">川派蜀绣</a>
                         <div class="dropdown-divider"></div>
@@ -46,7 +51,7 @@
                     <a class="nav-link" href="zixun.html">蜀绣资讯</a>
                 </li>
             </ul>
-            
+
         </div>
     </nav>
     <div class="shell" id="shell">
@@ -59,13 +64,13 @@
                 <div class="item" data-text="郝淑萍《国色天香》">
                     <div class="content">
                         <img src="imagesSC/单面绣《国色天香》竖.png" alt="" class="img">
-                        <h2 class="content-title" >《国色天香》</h2>
+                        <h2 class="content-title">《国色天香》</h2>
                         <p class="content-desc">
                             作品将油画、摄影、刺绣三种艺术形式相组合，以牡丹作为主要创作对象，采用蜀绣传统针法：二三针、沙针、切针、虚实针、车拧针、
                             晕针、施毛针为主，新增引针、透明针、乱针等，通过空间想象创作而成。此件作品在用色方面更加大胆，造型更加生动自然，
                             最大程度展现牡丹的富贵吉祥的寓意。
                         </p>
-                        
+
                     </div>
                 </div>
                 <div class="item" data-text="《天歌》郝淑萍">
@@ -78,21 +83,21 @@
                             服饰纹样明丽大方。作品将刺绣与油画艺术相结合，人物、背景的色彩浓淡、明暗得到了很好的展现，形式新颖，质感厚重，
                             是蜀绣艺术的大胆创新。
                         </p>
-                        
+
                     </div>
                 </div>
                 <div class="item" data-text="郝淑萍《月季》">
                     <div class="content">
                         <img src="imagesSC/《月季》.png" alt="" class="img">
                         <h2 class="content-title">《月季》</h2>
-                        
+
                     </div>
                 </div>
                 <div class="item" data-text="《织锦图》郝淑萍">
                     <div class="content">
                         <img src="imagesSC/《织锦图》.png" alt="" class="img">
                         <h2 class="content-title">《织锦图》</h2>
-                        
+
                     </div>
                 </div>
                 <div class="item" data-text="郝淑萍《芙蓉鲤鱼》">
@@ -102,7 +107,7 @@
                         <p class="content-desc">
                             多人共同制作，该作品陈列于北京人民大会堂四川厅。
                         </p>
-                        
+
                     </div>
                 </div>
                 <div class="item" data-text="《川剧变脸》郝淑萍">
@@ -113,53 +118,53 @@
                             川剧变脸采用蜀绣传统针法绣制，人物面部绣工细致、眉角精细、五官端正、神态自然，肌肤的丰润感、衣饰的质感都有较好的体现。
                             作品整体色彩明快、刻画精细、立体感强，实现了超越照片的艺术效果。
                         </p>
-                        
+
                     </div>
                 </div>
                 <div class="item" data-text="郝淑萍《红荷鹭鸶图》">
                     <div class="content">
                         <img src="imagesSC/红荷鹭鸶图.png" alt="" class="img">
                         <h2 class="content-title">《红荷鹭鸶图》</h2>
-                        
+
                     </div>
                 </div>
                 <div class="item" data-text="郝淑萍作品一">
                     <div class="content">
                         <img src="zuopin/郝淑萍作品一.jpeg" alt="" class="img">
-                        
+
                     </div>
                 </div>
                 <div class="item" data-text="郝淑萍作品二">
                     <div class="content">
-                        <img src="zuopin/郝淑萍作品二.jpeg" alt="" class="img"> 
-            
+                        <img src="zuopin/郝淑萍作品二.jpeg" alt="" class="img">
+
                     </div>
                 </div>
                 <div class="item" data-text="郝淑萍作品三">
                     <div class="content">
                         <img src="zuopin/郝淑萍作品三.jpeg" alt="" class="img">
-            
+
                     </div>
                 </div>
 
                 <div class="item" data-text="郝淑萍作品四">
                     <div class="content">
                         <img src="zuopin/郝淑萍作品四.jpeg" alt="" class="img">
-                        
+
                     </div>
                 </div>
 
                 <div class="item" data-text="郝淑萍作品五">
                     <div class="content">
                         <img src="zuopin/郝淑萍作品五.jpg" alt="" class="img">
-                        
+
                     </div>
                 </div>
 
                 <div class="item" data-text="郝淑萍作品六">
                     <div class="content">
                         <img src="zuopin/郝淑萍作品六.jpeg" alt="" class="img">
-                        
+
                     </div>
                 </div>
 
@@ -167,7 +172,7 @@
                     <div class="content">
                         <img src="zuopin/《盼》.jpg" alt="" class="img">
                         <h2 class="content-title">《盼》</h2>
-            
+
                     </div>
                 </div>
 
@@ -175,7 +180,7 @@
                     <div class="content">
                         <img src="zuopin/九寨冬景.png" alt="" class="img">
                         <h2 class="content-title">《九寨冬景》</h2>
-            
+
                     </div>
                 </div>
 
@@ -198,7 +203,7 @@
                         <a class="page-link" href="作品欣赏7.html">7 <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="page-item"><a class="page-link" href="作品欣赏8.html">8</a></li>
-                    
+
                     <li class="page-item">
                         <a class="page-link" href="作品欣赏8.html" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
@@ -209,82 +214,6 @@
             </nav>
         </div>
     </div>
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script>
-
-        (function ($) {
-            $.fn.timeline = function () {
-                var selectors = {
-                    id: $(this),
-                    item: $(this).find(".item"),
-                    activeClass: "item--active",
-                    img: ".img"
-                };
-                // 将第一个时间轴项目激活，并设置时间轴背景图片为第一个项目的图片
-                selectors.item.eq(0).addClass(selectors.activeClass);
-                selectors.id.css(
-                    "background-image",
-                    "url(" +
-                    selectors.item.first()
-                        .find(selectors.img)
-                        .attr("src") +
-                    ")"
-                );
-                // 获取时间轴项目的总数
-                var itemLength = selectors.item.length;
-                // 当页面滚动时，触发滚动事件
-                $(window).scroll(function () {
-                    var max, min;
-                    // 获取页面滚动的距离
-                    var pos = $(this).scrollTop();
-                    selectors.item.each(function (i) {
-                        // 获取当前时间轴项目的最小和最大高度
-                        min = $(this).offset().top;
-                        max = $(this).height() + $(this).offset().top;
-                        var that = $(this);
-                        // 如果滚动到最后一个项目，并且超过了当前项目高度的一半，
-                        // 则将最后一个项目设置为激活状态，并设置背景图片为最后一个项目的图片
-                        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
-                            selectors.item.removeClass(selectors.activeClass);
-                            selectors.id.css(
-                                "background-image",
-                                "url(" +
-                                selectors.item.last()
-                                    .find(selectors.img)
-                                    .attr("src") +
-                                ")"
-                            );
-                            selectors.item.last().addClass(selectors.activeClass);
-                        }
-                        // 如果当前滚动位置在当前项目的最小和最大高度之间，
-                        // 则将当前项目设置为激活状态，并设置背景图片为当前项目的图片
-                        else if (pos <= max - 10 && pos >= min) {
-                            selectors.id.css(
-                                "background-image",
-                                "url(" +
-                                $(this)
-                                    .find(selectors.img)
-                                    .attr("src") +
-                                ")"
-                            );
-                            selectors.item.removeClass(selectors.activeClass);
-                            $(this).addClass(selectors.activeClass);
-                        }
-                    });
-                });
-            };
-        })(jQuery)
-        /*
-        最后，我们调用 timeline 插件并传入时间轴的 ID 作为参数。
-        这将启用时间轴插件并为该时间轴绑定滚动事件。
-        */
-    $("#shell").timeline();
-
-    </script>
-
     <div id="outerdiv" style="
             position: fixed;
             top: 0;
@@ -298,198 +227,11 @@
         <img id="bigimg" src="" />
     </div>
 
-    <script>
-        /**
-         * 实现图片点击放大、拖拽、滚轴滚动焦点缩放功能，相关参数、函数声明
-         */
-        let imgWidth, imgHeight; // 图片点击放大初始尺寸参数
-        let maxZoom = 4; //最大缩放倍数
-        let minreduce = 0.5; // 最小缩放倍数
-        let initScale = 1; //滚动缩放初始倍数，并不是图片点击放大的倍数
-        let isPointerdown = false; //鼠标按下的标识
-        //记录鼠标按下坐标和按下移动时坐标
-        let lastPointermove = {
-            x: 0,
-            y: 0,
-        };
-        //移动过程从上一个坐标到下一个坐标之间的差值
-        let diff = {
-            x: 0,
-            y: 0,
-        };
-        //图片放大后左上角的坐标，主要结合diff参数用于鼠标焦点缩放时图片偏移坐标
-        let x = 0;
-        let y = 0;
-    
-        // 记录节点
-        const allImg = document.querySelectorAll(".imgBox img");
-        const outerdiv = document.querySelector("#outerdiv");
-        const image = outerdiv.querySelector("#bigimg");
-        window.onload = function () {
-            allImg.forEach((item) => {
-            item.addEventListener("click", (e) => {
-                const that = e.target;
-                image.style.transform = "scale(1)";
-                //图片放大展示函数调用
-                imgShow(that);
-                // 监听鼠标滚动事件
-                window.addEventListener("wheel", handleStopWheel, {
-                passive: false,
-                });
-                // 拖转事件调用
-                imgDrag();
-            });
-            });
-        };
-    
-        function imgShow(that) {
-            let src = that.getAttribute("src");
-            image.setAttribute("src", src);
-    
-            // 设置尺寸和调整比例
-            let windowW = document.documentElement.clientWidth;
-            let windowH = document.documentElement.clientHeight;
-            let realWidth = image.naturalWidth; //获取图片的原始宽度
-            let realHeight = image.naturalHeight; //获取图片的原始高度
-            let outsideScale = 0.8;
-            let belowScale = 1.4;
-            let realRatio = realWidth / realHeight;
-            let windowRatio = windowW / windowH;
-    
-            // 说明：下面是我自己的一些判断逻辑，大致意思就是图片的真实尺寸大于屏幕尺寸则使用屏幕尺寸，如果小于屏幕尺寸就使用自己本身的尺寸；并根据大于或者小于的比例对图片的尺寸进一步调整。coder可以根据自己的要求进行修改。
-            if (realRatio >= windowRatio) {
-            if (realWidth > windowW) {
-              imgWidth = windowH * outsideScale;
-              imgHeight = (imgWidth / realWidth) * realHeight;
-            } else {
-              if (realWidth * belowScale < windowW) {
-                imgWidth = realWidth * (belowScale - 0.2);
-                imgHeight = (imgWidth / realWidth) * realHeight;
-                } else {
-                imgWidth = realWidth;
-                imgHeight = realHeight;
-                }
-            }
-            } else {
-            if (realHeight > windowH) {
-              imgHeight = windowH * outsideScale;
-              imgWidth = (imgHeight / realHeight) * realWidth;
-            } else {
-              if (realHeight * belowScale < windowW) {
-                imgHeight = realHeight * (belowScale - 0.2);
-                imgWidth = (imgHeight / realHeight) * realWidth;
-                } else {
-                imgWidth = realWidth;
-                imgHeight = realHeight;
-                }
-            }
-            }
-    
-            //设置放大图片的尺寸、偏移量并展示
-            image.style.width = imgWidth + "px";
-            image.style.height = imgHeight + "px";
-            x = (windowW - imgWidth) * 0.5;
-            y = (windowH - imgHeight) * 0.5;
-            image.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-            outerdiv.style.display = "block";
-    
-            // 点击蒙版及外面区域放大图片关闭
-            outerdiv.onclick = () => {
-            outerdiv.style.display = "none";
-            initScale = 1;
-            window.removeEventListener("wheel", handleStopWheel);
-            };
-    
-          // 阻止事件冒泡
-            image.onclick = (e) => {
-            e.stopPropagation();
-            };
-        }
-    
-        function handleStopWheel(e) {
-          let itemSizeChange = 1.1; //每一次滚动放大的倍数
-            if (e.target.id == "bigimg") {
-            // 说明：e.dataY如果大于0则表示鼠标向下滚动，反之则向上滚动，这里设计为向上滚动为缩小，向下滚动为放大
-            if (e.deltaY < 0) {
-                itemSizeChange = 1 / 1.1;
-            }
-            let _initScale = initScale * itemSizeChange;
-    
-            // 说明：在超过或低于临界值时，虽然让initScale等于maxZoom或minreduce，但是在后续的判断中放大图片的最终倍数并没有达到maxZoom或minreduce，而是跳过。
-            if (_initScale > maxZoom) {
-                initScale = maxZoom;
-            } else if (_initScale < minreduce) {
-                initScale = minreduce;
-            } else {
-                initScale = _initScale;
-            }
-            const origin = {
-              x: (itemSizeChange - 1) * imgWidth * 0.5,
-              y: (itemSizeChange - 1) * imgHeight * 0.5,
-            };
-            // 计算偏移量
-            if (_initScale < maxZoom && _initScale > minreduce) {
-              x -= (itemSizeChange - 1) * (e.clientX - x) - origin.x;
-              y -= (itemSizeChange - 1) * (e.clientY - y) - origin.y;
-                e.target.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${initScale})`;
-            }
-            }
-    
-            // 阻止默认事件
-            e.preventDefault();
-        }
-    
-        function imgDrag() {
-            // 绑定 鼠标按下事件
-            image.addEventListener("pointerdown", pointerdown);
-            // 绑定 鼠标移动事件
-            image.addEventListener("pointermove", pointermove);
-            image.addEventListener("pointerup", function (e) {
-            if (isPointerdown) {
-                isPointerdown = false;
-            }
-            });
-            image.addEventListener("pointercancel", function (e) {
-            if (isPointerdown) {
-                isPointerdown = false;
-            }
-            });
-        }
-    
-        function pointerdown(e) {
-            isPointerdown = true;
-            console.log(e.pointerId)
-    
-          // 说明：Element.setPointerCapture()将特定元素指定为未来指针事件的捕获目标。指针的后续事件将以捕获元素为目标，直到捕获被释放。可以理解为：在窗口不是全屏情况下，我在拖动放大图片时即使鼠标移出可窗口之外，此时事件还是捕获在该放大图片上。
-            image.setPointerCapture(e.pointerId);
-    
-            lastPointermove = {
-            x: e.clientX,
-            y: e.clientY,
-            };
-        }
-    
-        function pointermove(e) {
-            if (isPointerdown) {
-            const current1 = {
-                x: e.clientX,
-                y: e.clientY,
-            };
-            diff.x = current1.x - lastPointermove.x;
-            diff.y = current1.y - lastPointermove.y;
-            lastPointermove = {
-                x: current1.x,
-                y: current1.y,
-            };
-            x += diff.x;
-            y += diff.y;
-            image.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${initScale})`;
-            }
-            e.preventDefault();
-        }
-    </script>
 
-    <script type="module" src="./Firebase.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="module" src="./picture.js"></script>
+    <script type="module" src="./button.js"></script>
 </body>
 
 </html>
