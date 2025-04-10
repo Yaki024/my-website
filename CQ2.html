@@ -12,10 +12,23 @@
     <link rel="preload" href="./font/YanShiYouRanXiaoKai-2.ttf" as="font" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.ico">
+    <style>
+        @media (max-width: 768px) {
+            /* 搜索框调整 */
+            .form-inline {
+                flex-flow: nowrap;
+            }
+
+            .form-control {
+                width: auto !important;
+            }
+        }
+    </style>
 </head>
 <button id="backToTop" class="shadow">
     <i class="fas fa-arrow-up"></i>
 </button>
+
 <body background="images/back.png">
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color:rgb(0,104,55); opacity: 80%;">
         <a class="navbar-brand" href="index.html">
@@ -61,7 +74,8 @@
             <div class="alert alert-light col-9" style="height: 20%; " role="alert">
                 <hr>
                 <h3 style="color: black;">康宁(“蜀绣皇后”)</h3>
-                <img src="imagesCQ/康宁.jpg" style="width: 300px; height: 225px; border-radius: 20%;"><br><br>
+                <img src="imagesCQ/康宁.jpg" style="width: 300px; height: 225px; border-radius: 20%;"
+                    loading="lazy"><br><br>
                 <p>康宁，女，1955年出生
                     ，中国工艺美术大师、国家级非物质文化遗产代表性项目蜀绣代表性传承人，重庆市渝中区人。1978年进入“重庆挑花刺绣厂”工作，师从蜀绣艺人王清云。1979～1980年，著名国画大师苏葆桢来重庆挑花刺绣厂合作，期间得到苏大师指点，坚定了学习美术知识的决心，利用业余时间到四川美术学院和市文化宫职工技能培训班学习绘画，随着美术功底的日渐加深，逐渐摆脱了临摹图稿的老技艺，走上了设计、绘稿、刺绣一人完成的创新刺绣道路，如今从事刺绣工作已有四十余年的时间。
                 </p>
@@ -102,7 +116,7 @@
                 <p></p>
             </div>
             <div class="alert alert-light col-6" role="alert">
-                <img class="card-img" src="imagesCQ/康宁碎片.jpeg" style="height: 400px;">
+                <img class="card-img" src="imagesCQ/康宁碎片.jpeg" style="height: 400px;" loading="lazy">
             </div>
         </div>
     </div><br><br><br>
@@ -126,7 +140,7 @@
                 <p></p>
             </div>
             <div class="alert alert-light col-6" role="alert">
-                <img class="card-img" src="imagesCQ/康宁1.jpeg">
+                <img class="card-img" src="imagesCQ/康宁1.jpeg" loading="lazy">
             </div>
         </div>
     </div><br><br><br>
@@ -151,7 +165,7 @@
                 <p></p>
             </div>
             <div class="alert alert-light col-6" role="alert">
-                <img class="card-img" src="imagesCQ/康宁2.jpeg">
+                <img class="card-img" src="imagesCQ/康宁2.jpeg" loading="lazy">
             </div>
         </div>
     </div><br><br><br>
@@ -179,7 +193,7 @@
                 <p></p>
             </div>
             <div class="alert alert-light col-6" role="alert">
-                <img class="card-img" src="imagesCQ/康宁3.jpeg">
+                <img class="card-img" src="imagesCQ/康宁3.jpeg" loading="lazy">
             </div>
         </div>
     </div>
@@ -199,7 +213,7 @@
             </div>
             <div class="alert alert-light col-6" role="alert">
                 <div class="card">
-                    <img class="card-img" src="imagesCQ/《迷》.jpg">
+                    <img class="card-img" src="imagesCQ/《迷》.jpg" loading="lazy">
 
                     <p class="card-title" style="text-align: center;">
                         在2007年德国法兰克福举行的世界工艺美术大展上，康宁拿出这幅双面异形异彩绣《谜》，震惊世界：在薄如蝉翼的丝绢两面分别绣出不同的形象和色彩——一面是一位美丽的古代仕女，另一面却骇然见到一具坐姿相同但方向相反的骷髅，出人意料的大胆构思表现人生无常的哲学迷思
@@ -219,14 +233,14 @@
 
             <div class="alert alert-light col-6" role="alert">
                 <div class="card">
-                    <img class="card-img" src="imagesCQ/《耽•啸》（异形异色绣）.jpeg">
+                    <img class="card-img" src="imagesCQ/《耽•啸》（异形异色绣）.jpeg" loading="lazy">
                     <div class="card-body">
                         <p class="card-title" style="text-align: center;">《耽•啸》（异形异色绣）A面</p>
                     </div>
                 </div><br><br><br><br>
 
                 <div class="card">
-                    <img class="card-img" src="imagesCQ/《耽•啸》（异形异色绣）背.jpeg">
+                    <img class="card-img" src="imagesCQ/《耽•啸》（异形异色绣）背.jpeg" loading="lazy">
                     <div class="card-body">
                         <p class="card-title" style="text-align: center;">《耽•啸》（异形异色绣）B面</p>
                     </div>
@@ -244,70 +258,70 @@
 
             <div class="alert alert-light col-6" role="alert">
                 <div class="card">
-                    <img class="card-img" src="imagesCQ/《谐和》-异形，A面，2014年.jpeg">
+                    <img class="card-img" src="imagesCQ/《谐和》-异形，A面，2014年.jpeg" loading="lazy">
                     <div class="card-body">
                         <p class="card-title" style="text-align: center;">《谐和》-异形A面</p>
                     </div>
                 </div><br><br><br><br>
 
                 <div class="card">
-                    <img class="card-img" src="imagesCQ/《谐和》-异形，B面，2014年.jpeg">
+                    <img class="card-img" src="imagesCQ/《谐和》-异形，B面，2014年.jpeg" loading="lazy">
                     <div class="card-body">
                         <p class="card-title" style="text-align: center;">《谐和》-异形B面</p>
                     </div>
                 </div><br><br><br><br>
 
                 <div class="card">
-                    <img class="card-img" src="imagesCQ/《瑞霭祥和》，55×65cm，2014年.jpeg">
+                    <img class="card-img" src="imagesCQ/《瑞霭祥和》，55×65cm，2014年.jpeg" loading="lazy">
                     <div class="card-body">
                         <p class="card-title" style="text-align: center;">《瑞霭祥和》</p>
                     </div>
                 </div><br><br><br><br>
 
                 <div class="card">
-                    <img class="card-img" src="imagesCQ/《玉羽迎春》单面绣.jpeg">
+                    <img class="card-img" src="imagesCQ/《玉羽迎春》单面绣.jpeg" loading="lazy">
                     <div class="card-body">
                         <p class="card-title" style="text-align: center;">《玉羽迎春》单面绣</p>
                     </div>
                 </div><br><br><br><br>
 
                 <div class="card">
-                    <img class="card-img" src="imagesCQ/《雄风》，42×65cm，2012年.png">
+                    <img class="card-img" src="imagesCQ/《雄风》，42×65cm，2012年.png" loading="lazy">
                     <div class="card-body">
                         <p class="card-title" style="text-align: center;">《雄风》</p>
                     </div>
                 </div><br><br><br><br>
 
                 <div class="card">
-                    <img class="card-img" src="imagesCQ/《缘》双面绣.jpeg">
+                    <img class="card-img" src="imagesCQ/《缘》双面绣.jpeg" loading="lazy">
                     <div class="card-body">
                         <p class="card-title" style="text-align: center;">《缘》双面绣</p>
                     </div>
                 </div><br><br><br><br>
 
                 <div class="card">
-                    <img class="card-img" src="imagesCQ/《眷恋》单面绣.jpeg">
+                    <img class="card-img" src="imagesCQ/《眷恋》单面绣.jpeg" loading="lazy">
                     <div class="card-body">
                         <p class="card-title" style="text-align: center;">《眷恋》单面绣</p>
                     </div>
                 </div><br><br><br><br>
 
                 <div class="card">
-                    <img class="card-img" src="imagesCQ/九鱼.jpeg">
+                    <img class="card-img" src="imagesCQ/九鱼.jpeg" loading="lazy">
                     <div class="card-body">
                         <p class="card-title" style="text-align: center;">《九鱼》</p>
                     </div>
                 </div><br><br><br><br>
 
                 <div class="card">
-                    <img class="card-img" src="imagesCQ/《稚趣图》-异形，A面，1998年.jpeg">
+                    <img class="card-img" src="imagesCQ/《稚趣图》-异形，A面，1998年.jpeg" loading="lazy">
                     <div class="card-body">
                         <p class="card-title" style="text-align: center;">《稚趣图》-异形A面</p>
                     </div>
                 </div><br><br><br><br>
 
                 <div class="card">
-                    <img class="card-img" src="imagesCQ/《稚趣图》-异形，B面，1998年.jpeg">
+                    <img class="card-img" src="imagesCQ/《稚趣图》-异形，B面，1998年.jpeg" loading="lazy">
                     <div class="card-body">
                         <p class="card-title" style="text-align: center;">《稚趣图》-异形B面</p>
                     </div>
@@ -346,7 +360,7 @@
             <p class="lead" style="text-align: center;">Copright©某某有限公司版权所有|某ICP备19666577号</p>
         </div>
     </div>
-    
+
     <div id="customAlert" class="alert-popup">
         <i class="fas fa-tools"></i>
         <span>功能正在开发中，敬请期待</span>

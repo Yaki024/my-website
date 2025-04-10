@@ -45,7 +45,7 @@
         }
 
         #comments button {
-            
+
             padding: 12px 24px;
         }
 
@@ -59,6 +59,76 @@
                 font-size: 1.8em;
             }
         }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+
+            /* 主内容区调整 */
+            .container .row {
+                margin-top: 20% !important;
+            }
+
+            /* 资讯卡片容器 */
+            .alert.alert-light.col-8 {
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            /* 侧边新闻卡片 */
+            .alert.alert-light.col-4 {
+                width: 90%;
+                max-width: 90%;
+                margin: 0 auto 2rem;
+            }
+
+            /* 资讯卡片样式 */
+            .card {
+                margin: 0 0 2rem 0;
+                width: 100% !important;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            /* 标题优化 */
+            #title_zixun {
+                font-size: 1.4rem !important;
+                line-height: 1.5;
+            }
+
+            /* 正文内容 */
+            .card-text {
+                font-size: 1rem;
+                line-height: 1.8;
+                text-align: justify;
+            }
+
+            /* 评论区全宽显示 */
+            #comments {
+                width: 100%;
+                padding: 0 15px;
+            }
+
+            /* 评论输入框 */
+            #comments textarea {
+                height: 120px;
+            }
+
+            /* 调整新闻标题卡片 */
+            .card-header {
+                font-size: 1.5rem !important;
+            }
+
+            .card-text1 {
+                font-size: 1.2rem !important;
+            }
+
+            /* 响应式隐藏 */
+            .d-lg-none {
+                display: block !important;
+            }
+        }
+
+        
     </style>
 </head>
 
@@ -196,7 +266,7 @@
 
         <div class="row">
             <div class="col"></div>
-            <div class="col-8" id="comments" style="margin-top: 20px;">
+            <div class="col-12 col-md-8" id="comments" style="margin-top: 20px;">
                 <div class="card">
                     <div class="card-body">
                         <h2 style="font-size: 60px;">评论区</h2>

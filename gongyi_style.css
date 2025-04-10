@@ -1,0 +1,88 @@
+/* 新增移动端适配样式 */
+@media (max-width: 768px) {
+
+    /* 容器调整 */
+    .container,
+    .alert {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    /* 内容区域全宽 */
+    .col-9 {
+        width: 100% !important;
+        max-width: 100%;
+    }
+
+    /* 视频响应式 */
+    video {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    /* 文字排版优化 */
+    h1.alert-heading {
+        font-size: 2rem !important;
+    }
+
+    h5 {
+        font-size: 1.5rem !important;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    /* 图片居中优化 */
+    .rounded.mx-auto.d-block {
+        max-width: 80%;
+        height: auto;
+    }
+
+    /* 分页组件优化 */
+    .pagination {
+        flex-wrap: wrap;
+    }
+
+    .page-item {
+        margin: 2px;
+    }
+
+    /* 页脚调整 */
+    .display-4 {
+        font-size: 1rem !important;
+        line-height: 1.5;
+    }
+
+    /* 导航栏优化 */
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    /* 搜索框调整 */
+    .form-inline {
+        flex-flow: nowrap;
+    }
+
+    .form-control {
+        width: auto !important;
+    }
+}
+
+/* 通用视频样式 */
+video {
+    max-width: 100%;
+    height: auto;
+    background: #000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 移动端横屏适配 */
+@media screen and (orientation: landscape) {
+    video {
+        max-height: 70vh;
+    }
+}

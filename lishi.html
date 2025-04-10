@@ -40,7 +40,8 @@
     }
 
     .container h2,
-    h3,.alert-popup {
+    h3,
+    .alert-popup {
       font-family: sanji;
       src: url("./font/YanShiYouRanXiaoKai-2.ttf");
 
@@ -160,6 +161,105 @@
       object-fit: cover;
       border-radius: 30px;
     }
+
+    /* 新增移动端适配样式 */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 15px;
+      }
+
+      .box {
+        width: 100%;
+        padding-top: 30px;
+      }
+
+      .box>.title {
+        flex-direction: column;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box>.title>.item {
+        width: 30%;
+        height: auto;
+        
+        margin-bottom: 15px;
+      }
+
+
+
+      .box>.title>.item>img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .box>.title>.item>span {
+        font-size: 15px;
+      }
+
+      .content.che {
+        height: auto;
+        padding: 15px;
+      }
+
+      .imgList {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .imgList>img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 300px;
+        margin: 0 auto;
+      }
+
+      h1,
+      .alert-heading {
+        font-size: 32px !important;
+      }
+
+      .container p:not(.card-title) {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .card-title {
+        font-size: 20px;
+      }
+
+      .navbar-brand {
+        font-size: 18px;
+      }
+
+      #backToTop {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+      }
+
+      .jumbotron .display-4 {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .form-inline {
+        flex-flow: nowrap;
+      }
+      
+      .form-control {
+        width: auto !important;
+      }
+    }
+
+
+
 
     /* 一键返回 */
     #backToTop {
@@ -372,8 +472,8 @@
               </p>
             </div>
             <div class="imgList">
-              <img src="images/新中国时期1.png" class="lazyload">
-              <img src="images/新中国时期2.png" class="lazyload">
+              <img src="images/新中国时期1.png" loading="lazy">
+              <img src="images/新中国时期2.png" loading="lazy">
             </div>
           </div>
         </div>
