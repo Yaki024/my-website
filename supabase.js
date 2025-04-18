@@ -17,6 +17,77 @@ const COMMENTS_PER_PAGE = 10
 let totalComments = 0
 let allComments = []
 
+const accessKeyId = 'LTAI5tJ186ZvxwdehGBcyZdf'; 
+const accessKeySecret = 'jVatlpnN4Yd2BQOxjKO9N10XgJF2eh'; 
+
+async function checkContentSafety(text) {
+    try {
+        const endpoint = 'https://green.cn-hangzhou.aliyuncs.com';
+        const method = 'POST';
+        const path = '/api';
+        const region = 'cn-hangzhou';
+
+        // 构建请求参数
+        const params = {
+            text: text,
+            scenes: ['antispam']
+        };
+
+        // 生成签名
+        const signature = await generateSignature({
+            accessKeyId,
+            accessKeySecret,
+            method,
+            path,
+            region,
+            params
+        });
+
+        // 发送请求
+        const response = await fetch(`${endpoint}${path}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${signature}`
+            },
+            body: JSON.stringify(params)
+        });
+
+        const result = await response.json();
+        if (result.code === 200) {
+            return result.data[0].suggestion === 'pass';
+        } else {
+            throw new Error(`API 调用失败: ${result.message}`);
+        }
+    } catch (error) {
+        console.error('内容安全检测失败:', error);
+        return false;
+    }
+}
+
+// 生成签名
+async function generateSignature({ accessKeyId, accessKeySecret, method, path, region, params }) {
+    const date = new Date().toISOString().replace(/[\-\+]$/, 'Z');
+    const contentMd5 = '';
+    const contentType = 'application/json';
+    const canonicalizedHeaders = `content-md5:${contentMd5}\ncontent-type:${contentType}\ndate:${date}\n`;
+    const canonicalizedResource = `${path}?${new URLSearchParams(params).toString()}`;
+
+    const stringToSign = `${method}\n${contentMd5}\n${contentType}\n${date}\n${canonicalizedHeaders}${canonicalizedResource}`;
+    const signature = await sign(stringToSign, accessKeySecret);
+
+    return `${accessKeyId}:${signature}`;
+}
+
+// 使用 HMAC-SHA1 签名
+function sign(stringToSign, accessKeySecret) {
+    const crypto = require('crypto');
+    return crypto
+        .createHmac('sha1', accessKeySecret)
+        .update(stringToSign, 'utf8')
+        .digest('base64');
+}
+
 // 提交评论
 export async function submitComment(event) {
     event.preventDefault()
@@ -25,6 +96,19 @@ export async function submitComment(event) {
         const content = document.getElementById('content').value
         if (!name || !content) {
             throw new Error('名称和内容不能为空！')
+        }
+
+        // 检测内容安全
+        const [nameValid, contentValid] = await Promise.all([
+            checkContentSafety(name),
+            checkContentSafety(content)
+        ])
+
+        if (!nameValid) {
+            throw new Error('名称包含违规内容，请修改后提交！')
+        }
+        if (!contentValid) {
+            throw new Error('评论内容包含违规信息，请修改后提交！')
         }
 
         const { error } = await supabase
@@ -214,6 +298,19 @@ document.addEventListener('click', async (e) => {
         if (!nameInput.value.trim() || !contentInput.value.trim()) {
             alert('请填写姓名和内容');
             return;
+        }
+
+        // 检测内容安全
+        const [nameValid, contentValid] = await Promise.all([
+            checkContentSafety(nameInput.value.trim()),
+            checkContentSafety(contentInput.value.trim())
+        ])
+
+        if (!nameValid) {
+            throw new Error('名称包含违规内容，请修改后提交！')
+        }
+        if (!contentValid) {
+            throw new Error('回复内容包含违规信息，请修改后提交！')
         }
 
         // 提交回复
