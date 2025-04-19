@@ -102,11 +102,28 @@
             <p class="lead" style="text-align: center;">Copright©某某有限公司版权所有|某ICP备19666577号</p>
         </div>
     </div>
+    <div id="customAlert" class="alert-popup">
+        <i class="fas fa-tools"></i>
+        <span>功能正在开发中，敬请期待</span>
+    </div>
 
 
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        // 修改表单提交事件
+        $('form').submit(function (e) {
+            e.preventDefault();
+
+            const alertBox = $('#customAlert');
+            alertBox.addClass('show-alert');
+
+            setTimeout(() => {
+                alertBox.removeClass('show-alert');
+            }, 2000);
+        });
+    </script>
 
 </body>
 

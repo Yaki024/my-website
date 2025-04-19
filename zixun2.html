@@ -15,13 +15,13 @@
 </head>
 
 <style>
-    .p1{
-    font-family:sanji;
-    text-indent: 40px;
-    font-size: 50px;
-    src:url("./font/YanShiYouRanXiaoKai-2.ttf");
-    
-}
+    .p1 {
+        font-family: sanji;
+        text-indent: 40px;
+        font-size: 50px;
+        src: url("./font/YanShiYouRanXiaoKai-2.ttf");
+
+    }
 </style>
 
 <body background="images/back.png">
@@ -78,14 +78,15 @@
 
             </div>
             <div class="alert alert-light col-8" style="height: 20%; " role="alert">
-                <h1 class="alert-heading" style="color: black;">第三届四川省民间艺术（刺绣工艺）优秀传承人刘俊芳</h1><hr>
+                <h1 class="alert-heading" style="color: black;">第三届四川省民间艺术（刺绣工艺）优秀传承人刘俊芳</h1>
+                <hr>
                 <p class="p1">
                     在刘俊芳的绣品工艺美术坊里，陈列着琳琅满目的蜀绣作品，既有用于家装家饰的屏风摆件等大件绣品，也有精美小巧的日用物件。这些作品都是刘俊芳亲手设计创作的。“曲高就会和寡，只有走出去，创造出蜀绣的市场价值，才能吸引更多的年轻人，从而推进中华优秀传统文化的传承和创新。”
                 </p>
                 <p class="p1">
                     2018年刘俊芳获评锦江区第二届“濯锦工匠”。在此后的几年里，她一直奋斗在振兴和发展蜀绣文化事业的最前线。在锦江区书院街街道总工会的协调推动下，刘俊芳参加了书院职工之家“惠·蜀绣”系列课程，现场给予刺绣爱好者指导，通过扩大传承人群振兴非遗工艺。作为刺绣工艺优秀传承人，刘俊芳受邀参加“文化中国·锦绣四川”友好活动，出访欧洲各国，在奥地利维也纳、瑞士日内瓦、丹麦哥本哈根等地将蜀绣文化发扬广大。传统与现代的融合才能激发出蜀绣更多巧思创意，刘俊芳接连推出饰品盒、扇子、方巾、镜子等文创产品，深受年轻顾客喜爱，每年都会收到上万单绣品订单，她也因此成为了锦江区女性创业就业带头人，带动更多女性用巧手雕刻“艺术人生”。
                 </p>
-                
+
             </div>
         </div>
     </div><br><br><br><br>
@@ -99,11 +100,28 @@
             <p class="lead" style="text-align: center;">Copright©某某有限公司版权所有|某ICP备19666577号</p>
         </div>
     </div>
+    <div id="customAlert" class="alert-popup">
+        <i class="fas fa-tools"></i>
+        <span>功能正在开发中，敬请期待</span>
+    </div>
 
 
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        // 修改表单提交事件
+        $('form').submit(function (e) {
+            e.preventDefault();
+
+            const alertBox = $('#customAlert');
+            alertBox.addClass('show-alert');
+
+            setTimeout(() => {
+                alertBox.removeClass('show-alert');
+            }, 2000);
+        });
+    </script>
 
 </body>
 
